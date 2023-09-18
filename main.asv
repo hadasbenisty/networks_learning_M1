@@ -28,6 +28,7 @@ figure;scatter3(diffusion_map(1, :), diffusion_map(2, :), diffusion_map(3, :), 1
 colormap jet;
 title('Correlation matrices embedded by Diffusion Map, Colors - Training Session')
 dR = calc_Rdist(mC);
+diffusion_map_centroids = calcDiffusionMap(dR,configParams);
 
 aff_mat_centroids = CalcInitAff2D( dR, 5 );
 configParams.maxInd = 5;
@@ -36,12 +37,9 @@ figure;scatter3(diffusion_map_centroids(1, :), diffusion_map_centroids(2, :), di
 hold all; plot3(diffusion_map_centroids(1, :), diffusion_map_centroids(2, :), diffusion_map_centroids(3, :), 'k')
 title('Centroids matrices embedded by Diffusion Map, Colors - Training Session');
 
-%% Degree
+
 centality_vals = get_centrality(mC);
-[~, ic] = sort(centality_vals.degree(:, 7));
-figure;imagesc(centality_vals.degree(ic, :));
-ylabel('Cells'); xlabel('Training Session');
-title('Degree')
+
 
 
 
