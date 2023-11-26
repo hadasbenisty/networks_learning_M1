@@ -1,5 +1,5 @@
 function trajectories_analysis_sf(data_all, sflabels, train_stage, training_labels_lut)
-REPS = 1000;
+REPS = 10;
 X = data_all(:, 20:end, :);
 y = sflabels;
 alldataNT=[];

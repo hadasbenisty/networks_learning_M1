@@ -10,13 +10,13 @@ chosen_animal = 1; % or 2
 
 load(fullfile(datapath, animalsnames{chosen_animal}, 'data.mat'));
 
-%% svm - naive expert
+%% svm - beginner vs. expert
 [chanceLevel, estimated_level] = naive_expert_svm(data_all, train_stage, training_labels_lut); 
 figure;imagesc(linspace(-3.5, 7.5, 23), 1:7, estimated_level, [0 1]); set(gca, 'YtickLabels', labelsCTRL);
 xlabel('Time [sec]'); ylabel('Session');title('Prediction probability as Expert')
 colormap jet;colorbar;
 
-%% pca trajectories
+%% pca trajectories by outcome
 trajectories_analysis_sf(data_all, sflabels, train_stage, training_labels_lut);
 
 %% centroids
